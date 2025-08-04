@@ -125,32 +125,33 @@
 }
 
 .fixedButton {
-  display: block;
-  margin: 10px auto 30px auto; /* Adds spacing above and below */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px auto 30px auto;
   width: 90%;
   max-width: 600px;
-  text-align: center;
+  height: auto;
+  min-height: 60px;
 
+  text-align: center;
   background-color: #FF5722;
   color: #fff;
-  padding: 14px 28px;
   font-size: 1.2rem;
   font-weight: 800;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-
 
   animation: smoothBounce 2s ease-in-out infinite;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  padding: 16px 24px;
+  white-space: nowrap;
 }
 
-.fixedButton a {
-  text-decoration: none;
-  color: white;
-}
+
 
 .fomoSection {
   background-color: #2F674A;
