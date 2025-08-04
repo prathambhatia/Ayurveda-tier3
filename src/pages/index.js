@@ -12,7 +12,15 @@ export default function Home() {
 
       {/* Tagline */}
       <div className={styles.taglineWrapper}>
-        <img src="/NavBar.png" alt="Logo" className={styles.logoImage} />
+        <Image
+            src="/NavBar.png"
+            alt="Logo"
+            className={styles.logoImage}
+            width={200}        // Adjust this
+            height={100}       // Adjust this too
+            priority           
+          />
+
         <h2 className={styles.tagline}>💥 मर्दों की असली ताक़त का राज़ अब आपके पास! 💥</h2>
       </div>
 
