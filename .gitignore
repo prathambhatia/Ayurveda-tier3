@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# ================================
+# ⚙️ Dependencies
+# ================================
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +12,85 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# ================================
+# 🧪 Testing
+# ================================
 /coverage
 
-# next.js
+# ================================
+# 🚀 Next.js
+# ================================
 /.next/
+.next/cache/
 /out/
 
-# production
+# ================================
+# 🏗️ Production
+# ================================
 /build
 
-# misc
+# ================================
+# 🧹 Miscellaneous
+# ================================
 .DS_Store
 *.pem
 
-# debug
+# ================================
+# 🪲 Debug & Logs
+# ================================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
+*.pid
+*.seed
+*.pid.lock
 
-# env files (can opt-in for committing if needed)
-.env*
+# ================================
+# 🔐 Environment Variables
+# (can opt-in for committing if needed)
+/.env*
+!.env.example
 
-# vercel
+# ================================
+# ☁️ Vercel
+# ================================
 .vercel
 
-# typescript
+# ================================
+# 🟦 TypeScript
+# ================================
 *.tsbuildinfo
 next-env.d.ts
+
+# ================================
+# 🧠 Editor Config & OS files
+# ================================
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+.history/
+
+# JetBrains (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+
+# ================================
+# ⚠️ Tooling Caches
+# ================================
+.eslintcache
+.prettiercache
+
+# ================================
+# 🧪 Storybook (if used)
+/.storybook-out/
+.storybook-static/
