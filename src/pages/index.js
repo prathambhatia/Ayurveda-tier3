@@ -8,6 +8,7 @@ export default function Home() {
       <Head>
         <title>Mar Ki Taqat Ka Ayurvedic Raaz</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="noindex, nofollow" /> {/* no indexing */}
       </Head>
 
       {/* Tagline */}
