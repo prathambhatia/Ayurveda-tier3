@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', address: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     const endTime = new Date().getTime() + 5 * 60 * 1000; // 5 minutes from load
 
@@ -41,6 +43,8 @@ export default function Home() {
       return;
     }
   
+    setIsSubmitting(true); // 🟢 Start spinner
+  
     try {
       const response = await fetch(
         'https://script.google.com/macros/s/AKfycbzq9oj3p8rs2R0UMjbeLAbClMccb8lnG0OjQ1Pj8zOX6-d8r3li6BbKHF82X6QNEoV7/exec',
@@ -60,6 +64,8 @@ export default function Home() {
       console.error(error);
       alert('Error submitting form.');
     }
+  
+    setIsSubmitting(false); // 🔴 Stop spinner
   };
   
   
@@ -69,6 +75,23 @@ export default function Home() {
 
   return (
     <div className={styles.main} style={{ paddingBottom: '160px' }}>
+      {isSubmitting && (
+  <div style={{
+    position: 'fixed',
+    top: 0, left: 0,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    zIndex: 99999,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }}>
+    <div className={styles.spinner}></div>
+
+  </div>
+)}
+
       {showForm && (
     <div style={{
       position: 'fixed',
