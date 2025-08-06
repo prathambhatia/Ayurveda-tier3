@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', address: '' });
+  const [phoneError, setPhoneError] = useState('');
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -34,6 +36,21 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+if (!formData.name || !formData.phone) {
+  alert('Please fill out required fields.');
+  return;
+}
+
+if (!phoneRegex.test(formData.phone)) {
+  setPhoneError('Please enter a valid 10-digit phone number');
+  return;
+} else {
+  setPhoneError('');
+}
+
 
     if (!formData.name || !formData.phone) {
       alert('Name and phone number are required!');
@@ -115,11 +132,18 @@ export default function Home() {
             <label>फोन नंबर*</label>
             <input
               type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               required
               style={{ width: '100%', padding: '8px', color: 'black', marginBottom: '10px' }}
             />
+
+            {phoneError && (
+              <div style={{ color: 'red', marginBottom: '10px' }}>{phoneError}</div>
+            )}
+
 
             <label>पता (वैकल्पिक)</label>
             <textarea
@@ -139,7 +163,7 @@ export default function Home() {
       )}
 
       <Head>
-        <title>Mar Ki Taqat Ka Ayurvedic Raaz</title>
+        <title>Mard Ki Taqat Ka Ayurvedic Raaz</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex, nofollow" /> {/* no indexing */}
       </Head>
@@ -167,7 +191,7 @@ export default function Home() {
           </div>
           <br />
           <p style={{ fontWeight: "bold", color: "red", fontSize: "24px", marginTop: "10px" }}>
-            ये फॉर्मूला हज़ारوں पुरुषों की ज़िंदगी बदल चुका है!
+            ये फॉर्मूला हज़ार पुरुषों की ज़िंदगी बदल चुका है!
           </p>
           <br />
         </div>
@@ -259,7 +283,7 @@ export default function Home() {
           width={380}
           height={250}
           className={styles.beforeAfterImage}
-        />
+        />  
         <p className={styles.beforeAfterText}>{`Sirf 7 din mein farak mehsoos karein – bina kisi side effect ke!`}</p>
       </section>
 
